@@ -216,6 +216,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Buy Now Direct WhatsApp
+    document.querySelectorAll('.buy-now').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const card = e.target.closest('.product-card');
+            const name = card.dataset.name;
+            const price = card.dataset.price;
+            const message = `Hello U Zee Arwah! 👋\n\nI am interested in buying *${name}* (Rs. ${parseInt(price).toLocaleString()}).\n\nPlease let me know the next steps. Thank you! ✨`;
+            const whatsappUrl = `https://wa.me/923229779324?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    });
+
     checkoutBtn.addEventListener('click', () => {
         if (cart.length === 0) {
             alert('Your cart is empty!');
